@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Mogudu Garu ❤️</title>
+
+<style>
+
+/* Background */
+body{
+margin:0;
+font-family:cursive;
+color:white;
+text-align:center;
+overflow:hidden;
+background:linear-gradient(45deg,#ff4b7d,#ff9a9e,#fad0c4,#ffdde1);
+background-size:400% 400%;
+animation:bg 10s infinite alternate;
+}
+
+/* moving gradient */
+@keyframes bg{
+0%{background-position:left}
+100%{background-position:right}
+}
+
+/* screens */
+.screen{
+display:none;
+height:100vh;
+width:100vw;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:30px;
+}
+
+.active{
+display:flex;
+}
+
+/* button */
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:#ff0066;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px pink;
+}
+
+/* image */
+img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:15px;
+z-index:5;
+}
+
+/* hearts */
+.heart{
+position:absolute;
+font-size:22px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC (simple + safest way) -->
+<audio id="music" src="mysong.mp3" loop></audio>
+
+<!-- START PAGE -->
+<div id="start" class="screen active">
+<h1>For My Mogudu Garu ❤️</h1>
+<button onclick="startStory()">Start Our Story</button>
+</div>
+
+<!-- TEXT PAGE -->
+<div id="textPage" class="screen">
+<h2 id="text"></h2>
+</div>
+
+<!-- PHOTO PAGE -->
+<div id="photoPage" class="screen">
+<img id="photo">
+<div class="overlay">
+<h2 id="caption"></h2>
+</div>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="screen">
+<h1>Happy Valentine’s Day ❤️</h1>
+<h2>I Love You Ippatiki… Eppatiki… Chachedaka 💍</h2>
+</div>
+
+
+<script>
+
+let music=document.getElementById("music")
+
+/* switch screens */
+function show(id){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))
+document.getElementById(id).classList.add("active")
+}
+
+/* start button */
+function startStory(){
+music.play()
+startTexts()
+}
+
+/* TEXTS */
+let messages=[
+"🌹 Rose Day – Happiest Rose day abbayiii garu I wish okkasaraina rose isthav anii!",
+"💍 Propose Day – Prathiroju cheppina pade pade cheppali ani piche mata I LOVE YOU",
+"🍫 Chocolate Day –Nuvvu dairymilk ichi naku chala rojulu ayindi ivach kada!",
+"🧸 Teddy Day – Ninu ninnu hug cheskunna prathisari nannu teddy la nuv feel ayye ah feel nak nachuthundiii",
+"🤝 Promise Day – I will never leave you",
+"🤗 Hug Day – Ninnu hug cheskuni ala nii kowgilo undipovali ani undi raaa",
+"😘 Kiss Day – Gallo vegiresinappudala pakka unte bavundediii nii kiss ni direct ga thiskunedanni",
+"❤️ Valentine’s Day – Finally I meet you today I LOVE YOU AND HAPPY VALENTINES'DAY",
+"I coded this surprise only for you ❤️"
+]
+
+function startTexts(){
+
+show("textPage")
+
+let i=0
+
+let timer=setInterval(()=>{
+document.getElementById("text").innerText=messages[i]
+i++
+
+if(i>=messages.length){
+clearInterval(timer)
+setTimeout(startPhotos,4000)
+}
+
+},4000)
+}
+
+/* PHOTOS */
+function startPhotos(){
+
+show("photoPage")
+
+let pics=["pic1.jpg","pic2.jpg","pic3.jpg"]
+let caps=["Our Memory ❤️","My Favorite Person 🥰","Forever Us 💕"]
+
+let i=0
+
+let timer=setInterval(()=>{
+document.getElementById("photo").src=pics[i]
+document.getElementById("caption").innerText=caps[i]
+i++
+
+if(i>=pics.length){
+clearInterval(timer)
+setTimeout(()=>show("final"),5000)
+}
+
+},4000)
+}
+
+/* floating hearts */
+setInterval(()=>{
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"vw"
+document.body.appendChild(h)
+setTimeout(()=>h.remove(),6000)
+},400)
+
+</script>
+
+</body>
+</html>
