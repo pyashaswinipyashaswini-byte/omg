@@ -65,13 +65,7 @@ img{
 </style>
 </head>
 
-<body>
-
-<!-- MUSIC -->
-<button onclick="playMusic()">🎵 Play Our Song</button>
-<audio id="music">
-  <source src="mysong.mp3" type="audio/mpeg">
-</audio>
+<body> <button onclick="playMusic()">🎵 Play Song</button> <audio id="music"> <source src="mysong.mp3" type="audio/mpeg"> </audio> <script> function playMusic(){ document.getElementById("music").play(); }>
 
 <!-- SCENE 1 -->
 <section id="scene1">
@@ -165,10 +159,7 @@ img{
 /* Show first scene */
 document.getElementById("scene1").style.display="block";
 
-/* Music */
-function playMusic(){
- document.getElementById("music").play();
-}
+
 
 /* Scene switch */
 function nextScene(num){
