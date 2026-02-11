@@ -1,198 +1,199 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Mogudu Garu ❤️</title>
+<title>Our Love Story ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-/* Background */
 body{
-margin:0;
-font-family:cursive;
-color:white;
-text-align:center;
-overflow:hidden;
-background:linear-gradient(45deg,#ff4b7d,#ff9a9e,#fad0c4,#ffdde1);
-background-size:400% 400%;
-animation:bg 10s infinite alternate;
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(45deg,#ff4e8a,#ff9ecf,#ffc3e6);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-/* moving gradient */
-@keyframes bg{
-0%{background-position:left}
-100%{background-position:right}
+section{
+  display:none;
+  min-height:100vh;
+  padding:40px 20px;
+  animation:fade 1.5s ease;
 }
 
-/* screens */
-.screen{
-display:none;
-height:100vh;
-width:100vw;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-padding:30px;
+h1,h2{
+  margin-top:40px;
 }
 
-.active{
-display:flex;
-}
-
-/* button */
 button{
-padding:15px 35px;
-font-size:20px;
-border:none;
-border-radius:30px;
-background:#ff0066;
-color:white;
-cursor:pointer;
-box-shadow:0 0 20px pink;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff2e7a;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:30px;
+  font-weight:bold;
 }
 
-/* image */
 img{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
+  width:260px;
+  height:320px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
-.overlay{
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:15px;
-z-index:5;
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
-/* hearts */
 .heart{
-position:absolute;
-font-size:22px;
-animation:float 6s linear infinite;
+  position:fixed;
+  bottom:0;
+  font-size:25px;
+  animation:float 5s linear forwards;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh);opacity:0}
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC (simple + safest way) -->
-<audio id="music" src="mysong.mp3" loop></audio>
+<!-- MUSIC -->
+<button onclick="playMusic()">🎵 Play Our Song</button>
+<audio id="music">
+  <source src="mysong.mp3" type="audio/mpeg">
+</audio>
 
-<!-- START PAGE -->
-<div id="start" class="screen active">
-<h1>For My Mogudu Garu ❤️</h1>
-<button onclick="startStory()">Start Our Story</button>
-</div>
+<!-- SCENE 1 -->
+<section id="scene1">
+<h1>Happy Valentine's Day Abbayi Garu ❤️</h1>
+<p>Today is not just a day...</p>
+<p>It is OUR story 💕</p>
+<button onclick="nextScene(2)">Start Our Story ▶</button>
+</section>
 
-<!-- TEXT PAGE -->
-<div id="textPage" class="screen">
-<h2 id="text"></h2>
-</div>
+<!-- SCENE 2 -->
+<section id="scene2">
+<h2>Manam Kalisii Digina Best photo ✨</h2>
+<img src="https://i.ibb.co/93Z5tPhY/pic1-jpg.jpg">
+<p>Thank you so much for coming into my life and made an special person in your life...</p>
+<p>Ninnu chusinappudu theliyadu nuv na life lo intha important person avvuthavu ani  🌍</p>
+<button onclick="nextScene(3)">Next ▶</button>
+</section>
 
-<!-- PHOTO PAGE -->
-<div id="photoPage" class="screen">
-<img id="photo">
-<div class="overlay">
-<h2 id="caption"></h2>
-</div>
-</div>
+<!-- SCENE 3 -->
+<section id="scene3">
+<h2>The Moments With You 💞</h2>
+<img src="https://i.ibb.co/99b3dq9L/pic2-jpg.jpg">
+<p>Nitho prathi step naku edo happiness isthundi nitho unte nin chaala ante chaala happy ga unta ra...</p>
+<p>You are the most presious Gift in my life🥺</p>
+<button onclick="nextScene(4)">Next ▶</button>
+</section>
 
-<!-- FINAL -->
-<div id="final" class="screen">
-<h1>Happy Valentine’s Day ❤️</h1>
-<h2>I Love You Ippatiki… Eppatiki… Chachedaka 💍</h2>
-</div>
+<!-- SCENE 4 -->
+<section id="scene4">
+<h2>Entha dooram loo unna ninu ninnu vadilede ledu nuv ah chance naku ivvavu 🌍</h2>
+<p>Yekkada unna ninu nii danne...</p>
+<p>Chala miss ayya raa andhuke ala matlada last 2 weeks nunchii sorry abbayi💓</p>
+<button onclick="nextScene(5)">Next ▶</button>
+</section>
 
+<!-- SCENE 5 -->
+<section id="scene5">
+<h2>You Are My Comfort Zone🤍</h2>
+<img src="https://i.ibb.co/LDK903Qs/pic3-jpg.jpg">
+<p>Nuv nannu ila nadipisthu naa goals ki supoort chesthunte naa antha lucky person inkaevaru leru anipisthundi raa.</p>
+<p>Thanks ra nannu ah lucky person chesinandhuku 💖</p>
+<button onclick="nextScene(6)">Next ▶</button>
+</section>
+
+<!-- SCENE 6 -->
+<section id="scene6">
+<h2>Reasons Why I Love You ❤️</h2>
+<p>• Baristhav 😊</p>
+<p>• Ardam cheskuntav 💞</p>
+<p>• Thittavuu🥺</p>
+<p>• Nannu chinna papala chuskuntav💪</p>
+<button onclick="nextScene(7)">Next ▶</button>
+</section>
+
+<!-- SCENE 7 -->
+<section id="scene7">
+<h2>Promise Time 💍</h2>
+<p>I promise to stand with you.</p>
+<p>I promise to support you.</p>
+<p>I promise Every single second nithone unte.</p>
+<button onclick="nextScene(8)">Next ▶</button>
+</section>
+
+<!-- SCENE 8 -->
+<section id="scene8">
+<h2>Close Your Eyes 🥺</h2>
+<p>Imagine Chesko.....</p>
+<p>Manaki okka illu,amma nanna attamma mavayya ranjithu and thana wife happy gaa 2 years lo manaki pillalu enthaaa bavundoo kada ✨</p>
+<button onclick="nextScene(9)">Next ▶</button>
+</section>
+
+<!-- SCENE 9 -->
+<section id="scene9">
+<h2>Final Surprise 🎁</h2>
+<p>Out of 8 billion people...</p>
+<p>I choose YOU ❤️</p>
+<button onclick="showHearts()">Click For Magic ✨</button>
+<button onclick="nextScene(10)">Last Message ▶</button>
+</section>
+
+<!-- SCENE 10 -->
+<section id="scene10">
+<h1>I Love You Mogudu Garu 💖</h1>
+<p>You are my today...</p>
+<p>My tomorrow...</p>
+<p>And my Future ❤️</p>
+</section>
 
 <script>
 
-let music=document.getElementById("music")
+/* Show first scene */
+document.getElementById("scene1").style.display="block";
 
-/* switch screens */
-function show(id){
-document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))
-document.getElementById(id).classList.add("active")
+/* Music */
+function playMusic(){
+ document.getElementById("music").play();
 }
 
-/* start button */
-function startStory(){
-music.play()
-startTexts()
+/* Scene switch */
+function nextScene(num){
+ let sections=document.querySelectorAll("section");
+ sections.forEach(sec=>sec.style.display="none");
+ document.getElementById("scene"+num).style.display="block";
+ window.scrollTo(0,0);
 }
 
-/* TEXTS */
-let messages=[
-"🌹 Rose Day – Happiest Rose day abbayiii garu I wish okkasaraina rose isthav anii!",
-"💍 Propose Day – Prathiroju cheppina pade pade cheppali ani piche mata I LOVE YOU",
-"🍫 Chocolate Day –Nuvvu dairymilk ichi naku chala rojulu ayindi ivach kada!",
-"🧸 Teddy Day – Ninu ninnu hug cheskunna prathisari nannu teddy la nuv feel ayye ah feel nak nachuthundiii",
-"🤝 Promise Day – I will never leave you",
-"🤗 Hug Day – Ninnu hug cheskuni ala nii kowgilo undipovali ani undi raaa",
-"😘 Kiss Day – Gallo vegiresinappudala pakka unte bavundediii nii kiss ni direct ga thiskunedanni",
-"❤️ Valentine’s Day – Finally I meet you today I LOVE YOU AND HAPPY VALENTINES'DAY",
-"I coded this surprise only for you ❤️"
-]
-
-function startTexts(){
-
-show("textPage")
-
-let i=0
-
-let timer=setInterval(()=>{
-document.getElementById("text").innerText=messages[i]
-i++
-
-if(i>=messages.length){
-clearInterval(timer)
-setTimeout(startPhotos,4000)
+/* Floating Hearts */
+function showHearts(){
+ for(let i=0;i<40;i++){
+   let heart=document.createElement("div");
+   heart.innerHTML="❤️";
+   heart.className="heart";
+   heart.style.left=Math.random()*100+"vw";
+   document.body.appendChild(heart);
+   setTimeout(()=>heart.remove(),5000);
+ }
 }
-
-},4000)
-}
-
-/* PHOTOS */
-function startPhotos(){
-
-show("photoPage")
-
-let pics=["pic1.jpg","pic2.jpg","pic3.jpg"]
-let caps=["Our Memory ❤️","My Favorite Person 🥰","Forever Us 💕"]
-
-let i=0
-
-let timer=setInterval(()=>{
-document.getElementById("photo").src=pics[i]
-document.getElementById("caption").innerText=caps[i]
-i++
-
-if(i>=pics.length){
-clearInterval(timer)
-setTimeout(()=>show("final"),5000)
-}
-
-},4000)
-}
-
-/* floating hearts */
-setInterval(()=>{
-let h=document.createElement("div")
-h.className="heart"
-h.innerHTML="❤️"
-h.style.left=Math.random()*100+"vw"
-document.body.appendChild(h)
-setTimeout(()=>h.remove(),6000)
-},400)
 
 </script>
 
 </body>
 </html>
+
+
+
